@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <script>
+    function validateForm(event) {
+      event.preventDefault();
+      const inputs = document.querySelectorAll('input[type="text"]');
+      let valid = true;
+
+      for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].value.trim() === "") {
+          alert("Please fill in the field: " + inputs[i].name);
+          inputs[i].focus();
+          valid = false;
+          break;
+        }
+      }
+
+      if (valid) {
+        alert("Form submitted successfully!");
+      }
+    }
+  </script>
+</head>
+<body><center>
+  <h2>Registration Form</h2>
+  <fieldset style="width: 80px; border-radius: 8px; background-color: rgb(80, 110, 174);">
+  <form id="myForm" onsubmit="validateForm(event)">
+    <label for="fname">First Name:</label><br>
+    <input type="text" id="fname" name="First Name"><br><br>
+
+    <label for="lname">Last Name:</label><br>
+    <input type="text" id="lname" name="Last Name"><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="text" id="email" name="Email"><br><br>
+
+    <input type="submit" value="Submit" style="border-radius: 8px;">
+  </form></fieldset></center>
+</body>
+</html>
